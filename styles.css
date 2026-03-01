@@ -205,11 +205,94 @@ a:hover {
   color: var(--color-white);
 }
 
-/* Component: Hero Section */
+/* Component: Hero Section - Memory Wall */
 .hero {
-  padding: var(--spacing-xl) 0;
-  text-align: center;
+  position: relative;
+  min-height: 80vh;
+  /* Make it tall to show off the grid */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+}
+
+.memory-wall-bg {
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 120%;
+  height: 200%;
+  display: flex;
+  gap: var(--spacing-sm);
+  transform: rotate(-10deg);
+  /* Slight Dutch angle for dynamic feel */
+  opacity: 0.15;
+  /* Subtle and soft */
+  pointer-events: none;
+  /* Don't block clicks to the main content */
+  z-index: 0;
+}
+
+.memory-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: calc(100% / 5);
+  /* 5 columns */
+  animation: scrollWall 60s linear infinite;
+}
+
+/* Alternate column directions */
+.memory-track:nth-child(even) {
+  animation-direction: reverse;
+  animation-duration: 75s;
+  /* Different speeds for parallax feel */
+}
+
+.memory-track:nth-child(3) {
+  animation-duration: 50s;
+}
+
+.memory-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-color: #dcdcdc;
+  /* Base placeholder color */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-sm);
+  filter: grayscale(100%) contrast(1.2);
+  /* Vintage feel */
+}
+
+@keyframes scrollWall {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+    /* Scroll exactly half to perfectly loop the duplicated content */
+  }
+}
+
+.hero-content-card {
+  position: relative;
+  z-index: 10;
+  background: rgba(253, 251, 247, 0.95);
+  /* Off-white with slight transparency */
+  backdrop-filter: blur(8px);
+  /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(229, 224, 216, 0.5);
+  text-align: center;
+  max-width: 800px;
+  width: 90%;
 }
 
 .hero-subtitle {
@@ -222,10 +305,15 @@ a:hover {
   margin-bottom: var(--spacing-sm);
 }
 
-.hero p {
+.hero-content-card h1 {
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-content-card p {
   font-size: 1.25rem;
   color: var(--color-text-light);
-  margin: 0 auto var(--spacing-md);
+  margin: 0 auto var(--spacing-lg);
+  max-width: 60ch;
 }
 
 .hero-actions {
@@ -405,6 +493,70 @@ textarea.form-control {
   text-align: center;
   margin: 0 auto 0.5rem auto;
   max-width: 100%;
+}
+
+/* Component: Reviews Carousel */
+.reviews-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+}
+
+/* Fading edges for the carousel */
+.reviews-carousel-container::before,
+.reviews-carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reviews-carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-white) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.reviews-carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-white) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.reviews-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollReviews 40s linear infinite;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+  /* Pause on hover so readers can finish reading */
+}
+
+.review-card {
+  width: 350px;
+  flex-shrink: 0;
+  background: var(--color-bg);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  white-space: normal;
+}
+
+@keyframes scrollReviews {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+    /* Scroll exactly half the width (minus half the gap) to loop perfectly */
+  }
 }
 
 /* Component: Article Styles */
