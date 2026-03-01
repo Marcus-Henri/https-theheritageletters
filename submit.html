@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nominate an Honored Elder | The Heritage Letters</title>
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-section {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .form-section-title {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-border);
+            padding-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .form-row-name {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+
+            .form-row,
+            .form-row-name {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">The Heritage Letters</a>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#stories">Featured Stories</a></li>
+                    <li><a href="submit.html" style="color: var(--color-accent);">Nominate an Honored Elder</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container container-narrow section">
+        <div class="text-center" style="margin-bottom: var(--spacing-xl);">
+            <h1>Share a Life Story</h1>
+            <p>Help us preserve the wisdom and experiences of our elders. Please fill out the form below to nominate
+                someone or to share your own story.</p>
+        </div>
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+
+            <!-- Section 1: Biographical Details -->
+            <section class="form-section">
+                <h2 class="form-section-title">1. Biographical Details</h2>
+
+                <div class="form-row-name">
+                    <div class="form-group">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" id="title" name="title" class="form-control" placeholder="e.g. Mr.">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" required
+                            placeholder="First">
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName" class="form-label">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName" class="form-control" placeholder="Middle">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" required
+                            placeholder="Last">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthplace" class="form-label">Birthplace (City, State/Country)</label>
+                        <input type="text" id="birthplace" name="birthplace" class="form-control" required
+                            placeholder="e.g., London, UK">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="professions" class="form-label">Former Professions or Life Roles</label>
+                    <input type="text" id="professions" name="professions" class="form-control"
+                        placeholder="e.g., Teacher, Navy Veteran, Mother of four">
+                </div>
+            </section>
+
+            <!-- Section 2: The Interview -->
+            <section class="form-section">
+                <h2 class="form-section-title">2. The Interview</h2>
+                <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
+                    Take your time answering these questions. The more detail and emotion, the better. You may save your
+                    progress and return later if needed.
+                </p>
+
+                <div class="form-group">
+                    <label for="triumphs" class="form-label">What do you consider your greatest triumph in life?</label>
+                    <textarea id="triumphs" name="triumphs" class="form-control"
+                        placeholder="Share a moment of immense pride or an obstacle successfully overcome..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="historical" class="form-label">Which major historical events did you live through, and
+                        how did they impact your daily life?</label>
+                    <textarea id="historical" name="historical" class="form-control"
+                        placeholder="Reflect on the times that changed the world around you..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="regrets_wisdom" class="form-label">If you could pass on one piece of hard-earned wisdom
+                        to the youth of today, what would it be?</label>
+                    <textarea id="regrets_wisdom" name="regrets_wisdom" class="form-control"
+                        placeholder="What matters most in the end? What should people stop worrying about?"></textarea>
+                </div>
+            </section>
+
+            <!-- Section 3: Favorites & Recommendations -->
+            <section class="form-section">
+                <h2 class="form-section-title">3. Favorites & Recommendations</h2>
+                <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
+                    Sharing favorite pieces of art and wisdom helps create a full picture of a life. Provide as many
+                    details as you'd like.
+                </p>
+
+                <div class="form-group">
+                    <label for="favorite_quote" class="form-label">Favorite Quote</label>
+                    <textarea id="favorite_quote" name="favorite_quote" class="form-control" rows="2"
+                        placeholder="A piece of advice, a famous saying, or a personal motto..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="favorite_book" class="form-label">Favorite Book</label>
+                        <input type="text" id="favorite_book" name="favorite_book" class="form-control"
+                            placeholder="e.g., The Old Man and the Sea">
+                    </div>
+                    <div class="form-group">
+                        <label for="book_reason" class="form-label">Why this book?</label>
+                        <input type="text" id="book_reason" name="book_reason" class="form-control"
+                            placeholder="A brief sentence on why it's meaningful.">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="favorite_music" class="form-label">Favorite Music (Artists or Songs)</label>
+                        <input type="text" id="favorite_music" name="favorite_music" class="form-control"
+                            placeholder="e.g., Ella Fitzgerald, Johnny Cash">
+                    </div>
+                    <div class="form-group">
+                        <label for="favorite_movie" class="form-label">Favorite Movie(s)</label>
+                        <input type="text" id="favorite_movie" name="favorite_movie" class="form-control"
+                            placeholder="e.g., Casablanca, Rocky">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Photo Uploads -->
+            <section class="form-section" id="photo-section">
+                <h2 class="form-section-title">4. Photo Uploads</h2>
+                <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
+                    We require a clear photo from the subject's youth, and a prominent recent portrait. Please upload
+                    high-resolution images if possible.
+                </p>
+
+                <div class="form-row" id="core-photos">
+                    <div class="form-group">
+                        <label for="photoYouth" class="form-label">Upload a Photo from Youth</label>
+                        <input type="file" id="photoYouth" name="photoYouth" class="form-control"
+                            accept="image/png, image/jpeg, image/jpg" style="padding: 0.75rem;">
+                        <span class="form-help">Max size: 5MB. Formats: JPG, PNG.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photoPresent" class="form-label">Upload a Current Portrait</label>
+                        <input type="file" id="photoPresent" name="photoPresent" class="form-control"
+                            accept="image/png, image/jpeg, image/jpg" style="padding: 0.75rem;">
+                        <span class="form-help">Max size: 5MB. Formats: JPG, PNG.</span>
+                    </div>
+                </div>
+
+                <div id="additional-photos"></div>
+
+                <div style="margin-top: 1rem;">
+                    <button type="button" class="btn btn-outline" id="add-photo-btn"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">+ Add Another Photo</button>
+                </div>
+            </section>
+
+            <!-- Section 5: Video Uploads -->
+            <section class="form-section">
+                <h2 class="form-section-title">5. Video Uploads</h2>
+                <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
+                    A video clipping or interview excerpt adds incredible depth to the story. Upload a brief video
+                    greeting or unedited interview snippet below.
+                </p>
+
+                <div class="form-group">
+                    <label for="videoUpload" class="form-label">Upload Video Clip</label>
+                    <input type="file" id="videoUpload" name="videoUpload" class="form-control"
+                        accept="video/mp4, video/mov" style="padding: 0.75rem; max-width: 400px;">
+                    <span class="form-help">Max size: 100MB. Formats: MP4, MOV.</span>
+                </div>
+            </section>
+
+            <div class="text-center" style="margin-top: var(--spacing-lg);">
+                <button type="submit" class="btn btn-primary"
+                    style="padding-left: var(--spacing-xl); padding-right: var(--spacing-xl);">Submit Story</button>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p>&copy; 2026 The Heritage Letters. Preserving dignity, wisdom, and history.</p>
+            <div style="margin-top: 1rem;">
+                <a href="reviews.html"
+                    style="color: var(--color-white); text-decoration: underline; font-size: 0.9rem;">Submit a
+                    Review</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('add-photo-btn').addEventListener('click', function () {
+            var container = document.getElementById('additional-photos');
+            var photoCount = container.children.length + 1;
+
+            var newGroup = document.createElement('div');
+            newGroup.className = 'form-group';
+            newGroup.style.marginTop = '1rem';
+
+            newGroup.innerHTML = `
+                <label for="photoExtra${photoCount}" class="form-label">Additional Photo ${photoCount}</label>
+                <input type="file" id="photoExtra${photoCount}" name="photoExtra${photoCount}" class="form-control" accept="image/png, image/jpeg, image/jpg" style="padding: 0.75rem; max-width: 400px;">
+            `;
+
+            container.appendChild(newGroup);
+        });
+    </script>
+</body>
+
+</html>
