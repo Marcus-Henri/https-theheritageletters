@@ -115,6 +115,11 @@ a:hover {
   text-align: center;
 }
 
+.text-center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Component: Header/Nav */
 .site-header {
   padding: var(--spacing-md) 0;
