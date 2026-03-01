@@ -118,6 +118,12 @@
                     </div>
                 </div>
 
+                <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                    <label for="currentLocation" class="form-label">Current Location (City, State/Country)</label>
+                    <input type="text" id="currentLocation" name="currentLocation" class="form-control" required
+                        placeholder="e.g., Austin, TX">
+                </div>
+
                 <div class="form-group">
                     <label for="professions" class="form-label">Former Professions or Life Roles</label>
                     <input type="text" id="professions" name="professions" class="form-control"
@@ -154,9 +160,39 @@
                 </div>
             </section>
 
-            <!-- Section 3: Favorites & Recommendations -->
+            <!-- Section 3: Timeline Milestones -->
             <section class="form-section">
-                <h2 class="form-section-title">3. Favorites & Recommendations</h2>
+                <h2 class="form-section-title">3. Significant Life Events (Timeline)</h2>
+                <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
+                    Please share a few major milestones to log on the story's timeline. Examples: date of marriage,
+                    birth of children, major moves, starting a business, or experiencing a historical event like the
+                    Moon Landing.
+                </p>
+
+                <div id="timeline-events">
+                    <div class="form-row" style="margin-bottom: var(--spacing-sm);">
+                        <div class="form-group">
+                            <label for="timelineDate1" class="form-label">Date / Year</label>
+                            <input type="text" id="timelineDate1" name="timelineDate1" class="form-control"
+                                placeholder="e.g., 1968 or August 1985">
+                        </div>
+                        <div class="form-group">
+                            <label for="timelineEvent1" class="form-label">Event Description</label>
+                            <input type="text" id="timelineEvent1" name="timelineEvent1" class="form-control"
+                                placeholder="e.g., Moved to Texas, or Married John">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1rem;">
+                    <button type="button" class="btn btn-outline" id="add-timeline-btn"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">+ Add Another Milestone</button>
+                </div>
+            </section>
+
+            <!-- Section 4: Favorites & Recommendations -->
+            <section class="form-section">
+                <h2 class="form-section-title">4. Favorites & Recommendations</h2>
                 <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
                     Sharing favorite pieces of art and wisdom helps create a full picture of a life. Provide as many
                     details as you'd like.
@@ -195,9 +231,9 @@
                 </div>
             </section>
 
-            <!-- Section 4: Photo Uploads -->
+            <!-- Section 5: Photo Uploads -->
             <section class="form-section" id="photo-section">
-                <h2 class="form-section-title">4. Photo Uploads</h2>
+                <h2 class="form-section-title">5. Photo Uploads</h2>
                 <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
                     We require a clear photo from the subject's youth, and a prominent recent portrait. Please upload
                     high-resolution images if possible.
@@ -227,9 +263,9 @@
                 </div>
             </section>
 
-            <!-- Section 5: Video Uploads -->
+            <!-- Section 6: Video Uploads -->
             <section class="form-section">
-                <h2 class="form-section-title">5. Video Uploads</h2>
+                <h2 class="form-section-title">6. Video Uploads</h2>
                 <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md); font-size: 0.95rem;">
                     A video clipping or interview excerpt adds incredible depth to the story. Upload a brief video
                     greeting or unedited interview snippet below.
@@ -278,6 +314,30 @@
             `;
 
             container.appendChild(newGroup);
+        });
+
+        document.getElementById('add-timeline-btn').addEventListener('click', function () {
+            var container = document.getElementById('timeline-events');
+            var eventCount = container.children.length + 1;
+
+            var newRow = document.createElement('div');
+            newRow.className = 'form-row';
+            newRow.style.marginBottom = 'var(--spacing-sm)';
+
+            newRow.innerHTML = `
+                <div class="form-group">
+                    <label for="timelineDate${eventCount}" class="form-label">Date / Year</label>
+                    <input type="text" id="timelineDate${eventCount}" name="timelineDate${eventCount}" class="form-control"
+                        placeholder="e.g., 1968 or August 1985">
+                </div>
+                <div class="form-group">
+                    <label for="timelineEvent${eventCount}" class="form-label">Event Description</label>
+                    <input type="text" id="timelineEvent${eventCount}" name="timelineEvent${eventCount}" class="form-control"
+                        placeholder="e.g., Moved to Texas, or Married John">
+                </div>
+            `;
+
+            container.appendChild(newRow);
         });
     </script>
 </body>
