@@ -123,7 +123,7 @@
             if (!reviewerName || !reviewText) return;
 
             // Using the same URL that handles the email subscriptions
-            const scriptURL = 'https://script.google.com/macros/s/AKfycby5-_C4QYbOe_HwGAKn1ZT8Nbpb5aBnQ7oYW80xYNcAp_mFj2mKf1CGSLtyHsjDk9fwOg/exec';
+            const scriptURL = 'https://formspree.io/f/mrpbekyk';
 
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
@@ -134,7 +134,8 @@
             formData.append('relationship', relationship);
             formData.append('reviewText', reviewText);
 
-            fetch(scriptURL, { method: 'POST', body: formData })
+            formData.append('_subject', 'Heritage Letters - review');
+        fetch(scriptURL, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
                 .then(response => {
                     document.querySelector('.form-section').innerHTML = `
                         <div class="text-center" style="padding: 2rem 0;">

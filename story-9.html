@@ -304,9 +304,10 @@
                     formData.append('question', questionInput.value.trim());
                     formData.append('type', 'living_qa_submission');
                     
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycby5-_C4QYbOe_HwGAKn1ZT8Nbpb5aBnQ7oYW80xYNcAp_mFj2mKf1CGSLtyHsjDk9fwOg/exec';
+                    const scriptURL = 'https://formspree.io/f/mrpbekyk';
                     
-                    fetch(scriptURL, { method: 'POST', body: formData })
+                    formData.append('_subject', 'Heritage Letters - question on story-9');
+        fetch(scriptURL, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
                         .then(response => {
                             msgElement.style.color = '#1B2A47';
                             msgElement.textContent = 'Thank you! Your question has been submitted to our editors.';
