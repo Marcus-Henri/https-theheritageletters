@@ -79,18 +79,8 @@
                 someone or to share your own story.</p>
         </div>
 
-        <!-- ===================================================================
-     TO TURN NOMINATIONS ON (about two minutes, free, no cost ever):
-       1. Go to formspree.io, sign up, create a form, set the
-          destination address to your own inbox.
-       2. They give you an endpoint like  https://formspree.io/f/abcdwxyz
-       3. Replace  action="#"  below with that URL, and delete this note.
-     Your email address is stored at Formspree, NOT in this page, so it
-     never appears in the page source and never reaches a scraper.
-     Note: the free tier relays text fields only - file uploads are not
-     included, so ask for photos in a reply once you have made contact.
-     =================================================================== -->
-<form action="#" method="POST" enctype="multipart/form-data" data-relay="_relay_placeholder">
+        <form action="https://formspree.io/f/mrpbekyk" method="POST">
+<input type="hidden" name="_next" value="https://https-theheritageletters.vercel.app/thanks.html">
 <input type="hidden" name="_subject" value="Heritage Letters - new nomination">
 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -255,14 +245,15 @@
                 <div class="form-row" id="core-photos">
                     <div class="form-group">
                         <label for="photoYouth" class="form-label">Upload a Photo from Youth</label>
-                        <input type="file" id="photoYouth" name="photoYouth" class="form-control"
+                        <p class="upload-note" style="font-family:'Merriweather',serif;font-size:0.9rem;line-height:1.6;color:var(--color-text-light);border-left:3px solid var(--color-accent);padding:0.75rem 1rem;background:var(--color-white);margin-bottom:1.5rem;">Photographs and video are collected later, by reply, once we have been in touch &mdash; please leave these fields alone for now.</p>
+<input type="file" id="photoYouth" name="photoYouth" disabled class="form-control"
                             accept="image/png, image/jpeg, image/jpg" style="padding: 0.75rem;">
                         <span class="form-help">Max size: 5MB. Formats: JPG, PNG.</span>
                     </div>
 
                     <div class="form-group">
                         <label for="photoPresent" class="form-label">Upload a Current Portrait</label>
-                        <input type="file" id="photoPresent" name="photoPresent" class="form-control"
+                        <input type="file" id="photoPresent" name="photoPresent" disabled class="form-control"
                             accept="image/png, image/jpeg, image/jpg" style="padding: 0.75rem;">
                         <span class="form-help">Max size: 5MB. Formats: JPG, PNG.</span>
                     </div>
@@ -286,7 +277,7 @@
 
                 <div class="form-group">
                     <label for="videoUpload" class="form-label">Upload Video Clip</label>
-                    <input type="file" id="videoUpload" name="videoUpload" class="form-control"
+                    <input type="file" id="videoUpload" name="videoUpload" disabled class="form-control"
                         accept="video/mp4, video/mov" style="padding: 0.75rem; max-width: 400px;">
                     <span class="form-help">Max size: 100MB. Formats: MP4, MOV.</span>
                 </div>
